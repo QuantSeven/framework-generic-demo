@@ -1,17 +1,27 @@
 import org.junit.Test;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 
-import com.qya.demo.dao.UserDao;
-import com.qya.demo.model.User;
+import com.qya.demo.dao.user.UserDao;
+import com.qya.demo.model.user.User;
+import com.qya.demo.service.user.UserService;
 
 public class TestDemo extends BaseDaoTest {
 
 	@Autowired
+	private UserService userService;
+	
+	@Autowired
 	private UserDao userDao;
 	
 	@Test
+	@Rollback(false)
 	public void testSteif() {
-		User user = userDao.get("1");
-		System.out.println(user);
+		User user = new User();
+		user.setUserId("esdfsdfr");
+		user.setUserName("qqqq");
+		User u = userService.save(user);
+		System.out.println(u.getUserName());
 	}
 }

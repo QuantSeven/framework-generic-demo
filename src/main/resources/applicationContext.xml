@@ -28,8 +28,24 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	<!-- proxy-target-class="true" 表示强制使用CGLIB代理，默认为：false -->
+	<aop:config proxy-target-class="true">
+		<aop:advisor pointcut="execution(* com.qya.demo.service.*.*Service.*(..))" advice-ref="txAdvice"/>
+	</aop:config>
+
+	<tx:advice id="txAdvice"  transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="read*" read-only="true" />
+			<tx:method name="is*" read-only="true" />
+			<tx:method name="max*" read-only="true"  propagation="NOT_SUPPORTED"/>
+			<tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+		</tx:attributes>
+	</tx:advice>
 	
-	<bean id="frameworkConfiguration" class="framework.generic.cfg.FrameworkConfigurationImpl" init-method="init">
+	<bean id="frameworkConfiguration" class="framework.generic.cfg.FrameworkConfigurationImpl" >
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->

@@ -1,8 +1,8 @@
-package com.qya.demo.model;
+package com.qya.demo.model.user;
 
-import java.io.Serializable;
+import framework.generic.db.BaseModel;
 
-public class User implements Serializable {
+public class User extends BaseModel {
 
 	private static final long serialVersionUID = -5715127787894739564L;
 	private String userId;
