@@ -16,7 +16,7 @@ public class UserDaoImpl extends GenericDaoImpl<User, String> implements UserDao
 	public User get(String userId, String userName) {
 		String[] array = new String[]{userId,userName};
 		Map<Object, Object> paramMap = ArrayUtils.toMap(array);
-		return getSqlSession().selectOne("getBy", paramMap);
+		return null;
 		
 	}
 

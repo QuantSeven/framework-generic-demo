@@ -1,8 +1,9 @@
 package com.qya.demo.model.user;
 
 import framework.generic.db.BaseModel;
+import framework.generic.db.PersistentModel;
 
-public class User extends BaseModel {
+public class User implements PersistentModel {
 
 	private static final long serialVersionUID = -5715127787894739564L;
 	private String userId;
