@@ -19,7 +19,7 @@ public class TestDemo extends BaseDaoTest {
 	@Rollback(false)
 	public void testSteif() {
 		User user = new User();
-		user.setUserId("esdfsdfr");
+		user.setUserId("123");
 		user.setUserName("qqqq");
 		User u = userService.save(user);
 		System.out.println(u.getUserName());

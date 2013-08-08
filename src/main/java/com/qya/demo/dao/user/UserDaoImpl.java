@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.qya.demo.model.user.User;
 
-import framework.generic.dao.GenericDaoImpl;
+import framework.generic.mybatis.dao.GenericDaoImpl;
 
 @Repository("userDao")
 public class UserDaoImpl extends GenericDaoImpl<User, String> implements UserDao {

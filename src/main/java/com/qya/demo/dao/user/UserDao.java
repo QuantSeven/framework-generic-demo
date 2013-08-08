@@ -2,7 +2,7 @@ package com.qya.demo.dao.user;
 
 import com.qya.demo.model.user.User;
 
-import framework.generic.dao.GenericDao;
+import framework.generic.mybatis.dao.GenericDao;
 
 public  interface UserDao extends GenericDao<User, String> {
 

@@ -45,7 +45,7 @@
 		</tx:attributes>
 	</tx:advice>
 
-	<bean id="frameworkConfiguration" class="framework.generic.cfg.FrameworkConfigurationImpl">
+	<bean id="frameworkConfiguration" class="framework.generic.mybatis.cfg.FrameworkConfigurationImpl">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:/mybatis-config.xml" />
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
@@ -53,9 +53,4 @@
 		<!-- 显式指定Mapper文件位置 -->
 		<property name="mapperLocations" value="classpath:/mappings/*/*Dao.xml" />
 	</bean>
-	<bean id="frameworkEngine" class="framework.generic.cfg.FrameworkEngineFactoryBean">
-		<property name="frameworkConfiguration" ref="frameworkConfiguration" />
-	</bean>
-	
-	<bean id="dbSqlSessionTemplate" factory-bean="frameworkEngine" factory-method="getDbSqlSessionTemplate" />
 </beans>	

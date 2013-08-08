@@ -1,7 +1,6 @@
 package com.qya.demo.model.user;
 
-import framework.generic.db.BaseModel;
-import framework.generic.db.PersistentModel;
+import framework.generic.mybatis.db.PersistentModel;
 
 public class User implements PersistentModel {
 
